@@ -1,21 +1,20 @@
-import { Slot, component$ } from "@builder.io/qwik";
-import type { DocumentHead } from "@builder.io/qwik-city";
-
+import { component$, Slot } from '@builder.io/qwik'
+import type { DocumentHead } from '@builder.io/qwik-city'
 
 export default component$(() => {
   return (
     <>
       <Slot />
     </>
-  );
-});
+  )
+})
 
 export const head: DocumentHead = {
-  title: "Sổ lệnh",
+  title: 'Sổ lệnh',
   meta: [
     {
-      name: "description",
-      content: "Sổ lệnh",
-    },
-  ],
-};
+      name: 'description',
+      content: 'Sổ lệnh'
+    }
+  ]
+}

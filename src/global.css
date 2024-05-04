@@ -1,3 +1,5 @@
+@import './media/css/index.css';
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -60,6 +62,7 @@
     --pending-color: rgba(209, 164, 0, 1);
     --success-color: rgba(29, 187, 117, 1);
     --cancel-color: rgba(240, 75, 65, 1);
+    --active-route: rgba(117, 117, 117, 1);
 
 
     /* fonts */
@@ -102,12 +105,9 @@
   }
 }
 
-@layer base {
-  * {
-    @apply border-border;
-  }
-
-  body {
-    @apply bg-background text-foreground;
-  }
+html {
+  font-family: var(--font-family-common);
+  font-size: var(--font-size-common);
+  font-weight: var(--font-weight-common);
+  color: var(--white);
 }

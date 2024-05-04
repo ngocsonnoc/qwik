@@ -71,6 +71,7 @@ module.exports = {
         pending: "var(--pending-color)",
         success: "var(--success-color)",
         cancel: "var(--cancel-color)",
+        "active-route": "var(--active-route)",
       },
       borderRadius: {
         lg: "var(--radius)",
