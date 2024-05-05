@@ -17,6 +17,10 @@ const { dependencies = {}, devDependencies = {} } = pkg as any as {
  * Note that Vite normally starts from `index.html` but the qwikCity plugin makes start at `src/entry.ssr.tsx` instead.
  */
 
+
+
+findDuplicates(devDependencies, dependencies);
+
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
     plugins: [qwikCity(), qwikVite(), tsconfigPaths(), qwikReact()],
@@ -54,3 +58,15 @@ export default defineConfig(({ command, mode }): UserConfig => {
     },
   };
 });
+
+
+function findDuplicates(devDependencies, dependencies) {
+  const duplicateDeps = Object.keys(devDependencies).filter(
+    (dep) => dependencies[dep]
+  );
+  const msg = `
+    Warning: The dependency "${duplicateDeps.join(', ')}" is listed in both devDependencies and dependencies.
+    Please move the dependency to dependencies only and remove it from devDependencies
+  `
+  throw new Error(msg);
+}
