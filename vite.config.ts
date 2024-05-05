@@ -17,7 +17,6 @@ const { dependencies = {}, devDependencies = {} } = pkg as any as {
 };
 errorOnDuplicatesPkgDeps(devDependencies, dependencies);
 
-
 export default defineConfig(({ command, mode }): UserConfig => {
   return {
     plugins: [qwikCity(), qwikVite(), tsconfigPaths(), qwikReact()],
@@ -56,7 +55,6 @@ export default defineConfig(({ command, mode }): UserConfig => {
   };
 });
 
-
 // *** utils ***
 
 /**
@@ -66,12 +64,12 @@ export default defineConfig(({ command, mode }): UserConfig => {
  */
 function errorOnDuplicatesPkgDeps(
   devDependencies: PkgDep,
-  dependencies: PkgDep,
+  dependencies: PkgDep
 ) {
   // Create an array 'duplicateDeps' by filtering devDependencies.
   // If a dependency also exists in dependencies, it is considered a duplicate.
   const duplicateDeps = Object.keys(devDependencies).filter(
-    (dep) => dependencies[dep],
+    (dep) => dependencies[dep]
   );
 
   // Format the error message with the duplicates list.
@@ -82,5 +80,7 @@ function errorOnDuplicatesPkgDeps(
   `;
 
   // Throw an error with the constructed message.
-  throw new Error(msg);
+  if (duplicateDeps.length > 0) {
+    throw new Error(msg);
+  }
 }
