@@ -25,7 +25,7 @@ export default component$(() => {
   return (
     <>
       <Header />
-      <main>
+      <main class='p-[8px] w-full flex gap-[8px] bg-transparent'>
         <Slot />
       </main>
       {/* <Footer /> */}

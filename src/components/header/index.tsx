@@ -49,7 +49,7 @@ export default component$(() => {
         <NavLink href='/' class='flex items-end p-[4px]'>
           <img src={logo} alt='logo' width={93} height={30} />
         </NavLink>
-        <div class='flex items-center h-full'>
+        <div class=' items-center h-full hidden lg:flex'>
           {headerMenu.map((item, index) => (
             <NavLink
               href={item.link}
@@ -79,7 +79,7 @@ export default component$(() => {
           <img src={setting} alt='' width={24} height={24} class='object-contain' />
         </div>
         <Button variant='yellow-primary' size='sm'>
-          Login <ArrowDown />
+          Đăng nhập <ArrowDown />
         </Button>
       </div>
     </header>
