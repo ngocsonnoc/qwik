@@ -28,7 +28,7 @@ export const TableHead = component$((props: HeaderProps) => {
       selectedItems: [],
       isSelectAll: false
     },
-    toggleSelectAll = $(() => {})
+    toggleSelectAll = $(() => { })
   } = props
 
   return (
@@ -37,7 +37,7 @@ export const TableHead = component$((props: HeaderProps) => {
         {header.map((cell: TableHeader, i: number) => {
           if (cell.render) return <td key={i}>{cell.render(cell)}</td>
           const commonClasses =
-            'h-[28px] bg-dark-main px-[12px] uppercase text-[10px] text-grey-primary border-b shadow-table whitespace-nowrap'
+            'h-[28px] bg-dark-main px-[12px] uppercase text-[10px] text-grey-primary border-b shadow-grey-down whitespace-nowrap'
           let alignClasses = ''
           switch (cell.align) {
             case 'left':

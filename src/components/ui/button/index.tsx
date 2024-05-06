@@ -1,58 +1,48 @@
+import type { QwikIntrinsicElements } from '@builder.io/qwik'
 import { component$, Slot } from '@builder.io/qwik'
+import type { VariantProps } from 'class-variance-authority'
+import { cva } from 'class-variance-authority'
 
 import './button.css' // Assuming you import Tailwind CSS directly or indirectly here
 
-interface ButtonProps {
-  variant?: 'yellow-primary' | 'destructive' | 'outline' | 'secondary' | 'ghost' | 'link'
-  size?: 'sm' | 'lg' | 'icon'
-  asChild?: boolean
-  disabled?: boolean
-}
+import { cn } from '~/utils'
+
+type ButtonProps = QwikIntrinsicElements['button'] & VariantProps<typeof buttonVariants>
+
+const buttonVariants = cva(
+  'inline-flex items-center justify-center rounded-[4px] py-[2px] px-[8px] gap-[4px] whitespace-nowrap text-center cursor-pointer disabled:pointer-events-none disabled:opacity-50 transition-colors',
+  {
+    variants: {
+      variant: {
+        default: 'bg-primary text-primary-foreground shadow hover:bg-primary/90',
+        destructive: 'bg-destructive text-destructive-foreground shadow-sm hover:bg-destructive/90',
+        outline: 'border border-input bg-transparent shadow-sm hover:bg-accent hover:text-accent-foreground',
+        secondary: 'bg-secondary text-secondary-foreground shadow-sm hover:bg-secondary/80',
+        ghost: 'hover:bg-accent hover:text-accent-foreground',
+        link: 'text-primary underline-offset-4 hover:underline',
+        'yellow-primary': 'bg-yellow-primary text-blue-primary shadow hover:bg-yellow-primary/90'
+      },
+      size: {
+        default: 'text-[15px] font-[400]',
+        sm: 'h-8 rounded-md px-3 text-xs',
+        lg: 'h-10 rounded-md px-8',
+        icon: 'h-9 w-9'
+      }
+    },
+    defaultVariants: {
+      variant: 'default',
+      size: 'default'
+    }
+  }
+)
+
+export { buttonVariants }
 
 export const Button = component$((props: ButtonProps) => {
-  const { variant = 'default', size = 'sm', disabled = false, ...rest } = props
-
-  // Build class names based on props
-  const baseClasses =
-    'inline-flex items-center justify-center rounded-[4px] py-[2px] px-[8px] gap-[4px] whitespace-nowrap text-center cursor-pointer disabled:pointer-events-none disabled:opacity-50 transition-colors'
-  let variantClasses = ''
-
-  switch (variant) {
-    case 'yellow-primary':
-      variantClasses = 'bg-yellow-primary text-blue-primary'
-      break
-    case 'outline':
-      variantClasses = 'border border-gray-300 text-gray-700 hover:bg-gray-50'
-      break
-    case 'secondary':
-      variantClasses = 'bg-gray-500 hover:bg-gray-700 text-white'
-      break
-    case 'ghost':
-      variantClasses = 'bg-transparent hover:bg-gray-100 text-gray-700'
-      break
-    case 'link':
-      variantClasses = 'underline text-primary-500 hover:text-primary-600'
-      break
-    default:
-      variantClasses = 'bg-blue-500 hover:bg-blue-700 text-white'
-  }
-
-  let sizeClasses = ''
-  switch (size) {
-    case 'lg':
-      sizeClasses = 'px-8 py-3 text-base'
-      break
-    case 'icon':
-      sizeClasses = 'p-3 text-xl'
-      break
-    default:
-      sizeClasses = 'text-[15px] font-[400]'
-  }
-
-  const classNames = `${baseClasses} ${variantClasses} ${sizeClasses}`
+  const { variant = 'default', size = 'default', disabled = false, ...rest } = props
 
   return (
-    <button {...rest} class={classNames} disabled={disabled}>
+    <button {...rest} class={cn(buttonVariants({ variant, size }), rest.class)} disabled={disabled} {...rest}>
       <Slot />
     </button>
   )

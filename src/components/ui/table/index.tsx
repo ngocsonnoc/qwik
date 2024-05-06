@@ -21,7 +21,7 @@ interface TableProps {
 }
 
 export const Table = component$((props: TableProps) => {
-  const { header, data, slotName, selectedItems, showPagination = false, setSelectedItems = $(() => {}) } = props
+  const { header, data, slotName, selectedItems, showPagination = false, setSelectedItems = $(() => { }) } = props
   useStylesScoped$(scopeStyles)
 
   const sortOrder = useSignal<string>('')
@@ -131,6 +131,9 @@ const scopeStyles = `
   }
   tr:nth-child(even) {
     background-color: var(--table-row-primary);
+  }
+  tr:hover {
+    background-color: var(--background-5);
   }
 }
 `

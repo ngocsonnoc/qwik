@@ -9,7 +9,7 @@ interface CardContentProps {
 
 export const CardContent = component$((props: CardContentProps) => {
   const { title = '', layout = 'vertical' } = props
-  const baseClasses = 'rounded-[8px] border border-border-grey-primary bg-dark-main shadow-table w-full'
+  const baseClasses = 'rounded-[8px] border border-border-grey-primary bg-dark-main shadow-grey-down w-full'
   const verticalClasses = 'flex flex-col'
   const horizontalClasses = 'flex'
   const classNames = `${baseClasses} ${layout === 'vertical' ? verticalClasses : horizontalClasses}`

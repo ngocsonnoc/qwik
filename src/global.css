@@ -21,6 +21,8 @@
     --yellow-secondary: rgba(247, 236, 15, 1);
     --blue-primary: rgba(0, 35, 149, 1);
     --blue-secondary: rgba(17, 182, 248, 1);
+    --background-5: rgba(64, 64, 64, 1);
+    --grey-0: #F7F7FA;
 
     --border-grey-primary: rgba(217, 217, 217, 0.1);
 
@@ -42,6 +44,10 @@
 
     /* border */
     --border-common: 1px;
+
+    /* shadow */
+    --shadow-grey-down: 0px -1px 0px 0px rgba(217, 217, 217, 0.10) inset;
+
   }
 }
 

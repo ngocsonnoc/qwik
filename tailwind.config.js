@@ -39,6 +39,8 @@ module.exports = {
         success: "var(--success-color)",
         cancel: "var(--cancel-color)",
         "active-route": "var(--active-route)",
+        "background-5": "var(--background-5)",
+        "grey-0": "var(--grey-0)",
       },
       borderRadius: {
         lg: "var(--radius)",

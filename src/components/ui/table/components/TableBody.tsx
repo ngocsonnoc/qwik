@@ -24,7 +24,7 @@ interface BodyProps {
 }
 
 export const TableBody = component$((props: BodyProps) => {
-  const { data = [], selectedItems = [], header = [], onToggleSelect = $(() => {}) } = props
+  const { data = [], selectedItems = [], header = [], onToggleSelect = $(() => { }) } = props
 
   return (
     <tbody>
@@ -38,16 +38,16 @@ export const TableBody = component$((props: BodyProps) => {
             {keys.map((key, i) => {
               if (key !== RECORD_INDEX_STRING) {
                 const headerObject = header.find((h: TableHeader) => h.key === key)
+                const commonCellClasses = 'p-[8px] gap-[4px] items-center text-white text-[12px] shadow-grey-down'
+                const customCellClasses = headerObject?.cellClass || ''
+                const cellClasses = `${commonCellClasses} ${customCellClasses}`
                 if (headerObject?.renderCell) {
                   return (
-                    <td key={i} class='p-[8px] gap-[4px] items-center text-white text-[12px]'>
+                    <td key={i} class={cellClasses}>
                       {headerObject.renderCell(cell)}
                     </td>
                   )
                 }
-                const commonCellClasses = 'p-[8px] gap-[4px] items-center text-white text-[12px]'
-                const customCellClasses = headerObject?.cellClass || ''
-                const cellClasses = `${commonCellClasses} ${customCellClasses}`
 
                 if (isImage(cell[key])) {
                   const imgSrc = cell[key] as string
