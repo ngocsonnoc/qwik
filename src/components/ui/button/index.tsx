@@ -38,7 +38,7 @@ const buttonVariants = cva(
 
 export { buttonVariants }
 
-export const Button = component$((props: ButtonProps) => {
+const Button = component$((props: ButtonProps) => {
   const { variant = 'default', size = 'default', disabled = false, ...rest } = props
 
   return (

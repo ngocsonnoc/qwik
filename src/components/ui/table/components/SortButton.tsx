@@ -9,7 +9,7 @@ interface TypeProps {
   sortKey: Signal<string | number | null | undefined>
 }
 
-export const SortButton = component$((props: TypeProps) => {
+const SortButton = component$((props: TypeProps) => {
   const { cellKey, sortOrder, sortKey } = props
 
   useOn(
@@ -52,3 +52,5 @@ export const SortButton = component$((props: TypeProps) => {
     </svg>
   )
 })
+
+export default SortButton

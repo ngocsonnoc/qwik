@@ -7,7 +7,7 @@ interface pageProps {
   totalPosts: Signal<number>
 }
 
-export const Pagination = component$((props: pageProps) => {
+const Pagination = component$((props: pageProps) => {
   useStylesScoped$(AppCSS)
 
   const totalPage = useComputed$(() => {
@@ -129,6 +129,8 @@ export const Pagination = component$((props: pageProps) => {
     </div>
   )
 })
+
+export default Pagination
 
 export const AppCSS = `
   .post-select {

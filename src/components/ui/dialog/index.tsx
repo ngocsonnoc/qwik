@@ -52,10 +52,8 @@ const dialogBodyVariants = cva('w-full flex flex-col overflow-x-hidden overflow-
   }
 })
 
-export { dialogContentVariants }
-
-export const Dialog = component$((props: DialogProps) => {
-  const { open, size, title, closeWhenClickOutside = true, onOpenChange = $(() => { }), ...rest } = props
+const Dialog = component$((props: DialogProps) => {
+  const { open, size, title, closeWhenClickOutside = true, onOpenChange = $(() => {}), ...rest } = props
   const store = useStore({
     isOpen: Boolean(open),
     dialogClass: ''
@@ -95,3 +93,6 @@ export const Dialog = component$((props: DialogProps) => {
     </div>
   )
 })
+
+export default Dialog
+export { dialogContentVariants }

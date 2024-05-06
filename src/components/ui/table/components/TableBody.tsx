@@ -23,8 +23,8 @@ interface BodyProps {
   onToggleSelect?: PropFunction<(row: any) => void>
 }
 
-export const TableBody = component$((props: BodyProps) => {
-  const { data = [], selectedItems = [], header = [], onToggleSelect = $(() => { }) } = props
+const TableBody = component$((props: BodyProps) => {
+  const { data = [], selectedItems = [], header = [], onToggleSelect = $(() => {}) } = props
 
   return (
     <tbody>
@@ -81,3 +81,5 @@ export const TableBody = component$((props: BodyProps) => {
     </tbody>
   )
 })
+
+export default TableBody

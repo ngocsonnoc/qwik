@@ -1,6 +1,6 @@
 import { $, component$, useStore } from '@builder.io/qwik'
 
-import { Dialog } from '../ui/dialog'
+import Dialog from '../ui/dialog'
 
 import ArrowDown from '~/components/icons/ArrowDown'
 import { NavLink } from '~/components/nav-link'
@@ -48,8 +48,6 @@ export default component$(() => {
   const store = useStore({
     isDialogOpen: false
   })
-
-  console.log('store.isDialogOpen>>', store.isDialogOpen)
 
   return (
     <>

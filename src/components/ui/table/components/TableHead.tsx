@@ -4,7 +4,7 @@ import { $, component$ } from '@builder.io/qwik'
 import { CHECKBOX_KEY } from '../constants'
 import type { TableHeader } from '../interface'
 
-import { SortButton } from './SortButton'
+import SortButton from './SortButton'
 
 import { Checkbox } from '~/components/ui/checkbox'
 
@@ -19,7 +19,7 @@ interface HeaderProps {
   toggleSelectAll?: PropFunction<() => void>
 }
 
-export const TableHead = component$((props: HeaderProps) => {
+const TableHead = component$((props: HeaderProps) => {
   const {
     header = [],
     sortOrder,
@@ -28,7 +28,7 @@ export const TableHead = component$((props: HeaderProps) => {
       selectedItems: [],
       isSelectAll: false
     },
-    toggleSelectAll = $(() => { })
+    toggleSelectAll = $(() => {})
   } = props
 
   return (
@@ -74,3 +74,5 @@ export const TableHead = component$((props: HeaderProps) => {
     </thead>
   )
 })
+
+export default TableHead

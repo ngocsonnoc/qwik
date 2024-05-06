@@ -3,8 +3,8 @@ import type { DocumentHead } from '@builder.io/qwik-city'
 
 import data from './data.json'
 
-import { CardContent } from '~/components/card-content'
-import { Table } from '~/components/ui/table'
+import CardContent from '~/components/card-content'
+import Table from '~/components/ui/table'
 import type { TableHeader } from '~/components/ui/table/interface'
 import { formatCurrency, parsePercentage } from '~/utils'
 

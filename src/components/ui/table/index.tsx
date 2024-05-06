@@ -2,9 +2,9 @@ import type { PropFunction } from '@builder.io/qwik'
 import { $, component$, useSignal, useStore, useStylesScoped$, useVisibleTask$ } from '@builder.io/qwik'
 import _ from 'lodash'
 
-import { Pagination } from './components/Pagination'
-import { TableBody } from './components/TableBody'
-import { TableHead } from './components/TableHead'
+import Pagination from './components/Pagination'
+import TableBody from './components/TableBody'
+import TableHead from './components/TableHead'
 import { RECORD_INDEX_STRING } from './constants'
 import type { TableHeader } from './interface'
 import { sortData, transformDataTable } from './utils'
@@ -20,8 +20,8 @@ interface TableProps {
   showPagination?: boolean
 }
 
-export const Table = component$((props: TableProps) => {
-  const { header, data, slotName, selectedItems, showPagination = false, setSelectedItems = $(() => { }) } = props
+const Table = component$((props: TableProps) => {
+  const { header, data, slotName, selectedItems, showPagination = false, setSelectedItems = $(() => {}) } = props
   useStylesScoped$(scopeStyles)
 
   const sortOrder = useSignal<string>('')
@@ -123,6 +123,8 @@ export const Table = component$((props: TableProps) => {
     </div>
   )
 })
+
+export default Table
 
 const scopeStyles = `
 .table-striped {
